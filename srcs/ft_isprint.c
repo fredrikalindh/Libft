@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fredrika <fredrika@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 22:35:50 by fredrika          #+#    #+#             */
-/*   Updated: 2019/08/12 22:37:48 by fredrikalindh    ###   ########.fr       */
+/*   Created: 2019/10/07 15:13:32 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 14:05:42 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= ' ' && c <= '~')
+	if (c >= 27 && c < 127)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

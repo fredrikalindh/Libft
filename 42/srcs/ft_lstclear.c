@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:45:31 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 14:10:43 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/08 13:13:19 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 17:12:38 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t i;
-	size_t j;
+	t_list *curr;
+	t_list *tofree;
 
-	i = 0;
-	if (little[i] == '\0')
-		return (big);
-	while (big[i] && i < n)
+	curr = *lst;
+	while (curr != NULL)
 	{
-		j = 0;
-		while (big[i + j] == little[j])
-		{
-			if (little[j + 1] == '\0')
-				return (&big[i]);
-			j++;
-		}
-		i++;
+		del(curr->content);
+		tofree = curr;
+		curr = curr->next;
+		free(tofree);
 	}
-	return (NULL);
+	*lst = NULL;
 }

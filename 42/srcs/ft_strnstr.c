@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 13:56:21 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 14:04:57 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/07 14:45:31 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 16:06:33 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
-	int i;
-	int c;
-	int neg;
+	size_t i;
+	size_t j;
 
 	i = 0;
-	c = 0;
-	neg = 1;
-	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\t' ||
-		str[i] == '\v' || str[i] == '\r' || str[i] == '\n')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (little[i] == '\0')
+		return (big);
+	while (big[i] && i < n)
 	{
-		if (str[i] == '-')
-			neg = -neg;
+		j = 0;
+		while (big[i + j] == little[j])
+		{
+			if (little[j + 1] == '\0')
+				return (big[i]);
+			j++;
+		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		c = c * 10 + str[i] - '0';
-		i++;
-	}
-	return (c * neg);
+	return (NULL);
 }

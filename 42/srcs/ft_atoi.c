@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:18:14 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 14:05:55 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/07 13:56:21 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 17:13:35 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t i;
+	int i;
+	int c;
+	int neg;
 
 	i = 0;
-	while (i < n && s1[i] == s2[i] && s[i])
+	c = 0;
+	neg = 1;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\t' ||
+		str[i] == '\v' || str[i] == '\r' || str[i] == '\n')
 		i++;
-	return (s1[i] - s2[i]);
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			neg = -neg;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		c = c * 10 + str[i] - '0';
+		i++;
+	}
+	return (c * neg);
 }

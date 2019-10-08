@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_incharset.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 11:06:57 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 15:12:37 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/07 17:56:36 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 17:12:54 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_incharset(char const *set, char c)
+char	*ft_itoa(int n)
 {
-	int i;
+	char	*num;
+	int		i;
+	int		div;
 
+	if (!(num = (char *)malloc(sizeof(char) * 12)))
+		return (NULL);
 	i = 0;
-	while (set[i])
+	if (n < 0)
 	{
-		if (set[i] == c)
-			return (1);
-		i++;
+		num[i++] = '-';
+		n = -n;
 	}
-	return (0);
+	if (n == 0)
+		num[i++] = '0';
+	div = 1000000000;
+	while (n / div == 0)
+		div = div / 10;
+	while (div > 0)
+	{
+		num[i++] = n / div + '0';
+		n = n % div;
+		div = div / 10;
+	}
+	num[i] = '\0';
+	return (num);
 }

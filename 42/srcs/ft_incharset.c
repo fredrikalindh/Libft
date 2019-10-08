@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_incharset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:00:59 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 14:06:39 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/08 11:06:57 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 17:13:21 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+int	ft_incharset(char const *set, char c)
 {
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
 		i++;
-	if (str[i] == c)
-		return (str[i]);
-	return (NULL);
+	}
+	return (0);
 }

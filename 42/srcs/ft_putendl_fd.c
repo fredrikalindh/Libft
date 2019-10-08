@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frlindh <frlindh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 14:20:49 by frlindh           #+#    #+#             */
-/*   Updated: 2019/10/08 15:26:40 by frlindh          ###   ########.fr       */
+/*   Created: 2019/10/08 12:15:08 by frlindh           #+#    #+#             */
+/*   Updated: 2019/10/08 16:06:44 by frlindh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t i;
+	unsigned int i;
 
 	i = 0;
-	while (i < n && src[i] != NULL)
+	while (s[i])
 	{
-		dest[i] = src[i];
+		write(fd, &s[i], 1);
 		i++;
 	}
-	return (dest);
+	write(fd, "\n", 1);
 }

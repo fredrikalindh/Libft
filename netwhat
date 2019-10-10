@@ -1,0 +1,39 @@
+
+
+https://www.fixanatet.se
+
+IP address: Internet Protocol Address aka logical address is a unique identifier
+for each device on the internet assigned by Internet Assigned Numbers Authority (IANA).
+Lenght is 32-bits giving 2^32 possible addresses. The first part shows which network the device is connected. to.
+
+A netmask is a 32-bit binary mask used to divide an IP address into subnets and specify the network's available hosts. In a netmask, two bits are always automatically assigned. For example, in 255.255.225.0, "0" is the assigned network address. In 255.255.255.255, "255" is the assigned broadcast address. The 0 and 255 are always assigned and cannot be used.
+
+What is the subnet of an IP with Netmask? it is the parts corresponding with 255.
+
+What is the broadcast address of a subnet - 0
+
+What are the different way to represent an ip address with the Netmask: 255.255.255.0 / 255.255.0.0 / 255.0.0.0
+
+What are the difference between public and private IPs. Some of the IP addresses are reserved for so
+called private IPs. It's so that they can be used in multiple places. All adresses starting with ten, 172.16 - 172.31 and 192.168. They can't be used online, just on LAN. To go online you need NAT, network address translation.
+
+What is a class of IP address
+
+What is TCP
+
+What is UDP
+
+What are the network layers
+
+What is the OSI model
+What is a DHCP server and the DHCP protocol
+
+What is a DNS server and the DNS protocol
+
+What are the rules to make 2 devices communicate using IP addresses
+◦
+How routing is working with IP
+
+What is a default gateway for routing
+
+What is a port from an IP point of view and what is it used for when connecting to an other device

@@ -1,3 +1,3 @@
 # Libft
 
-Project for 42: basic C library functions
+First project for 42: basic C library functions
